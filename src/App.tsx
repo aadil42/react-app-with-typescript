@@ -8,11 +8,13 @@ function App() {
     new Todo('item1'),
     new Todo('item2')
   ];
-
+  const addTodo = (incomingTodo: string) => {
+    // add todo here.
+  }
   return (
     <div className="App">
       <Todos items={myTodos}/>
-      <NewTodo />
+      <NewTodo addTodo={addTodo} />
     </div>
   );
 }
