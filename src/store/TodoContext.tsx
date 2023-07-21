@@ -16,10 +16,7 @@ export const TodoContext = React.createContext<TodoContextType>({
 const TodoContextProvider: React.FC = (props) => {
 
     const [myTodos, setMyTodos] = useState<Todo[]>([]);
-    // const myTodos = [
-      // new Todo('item1'),
-      // new Todo('item2')
-    // ]; 
+    
     const addTodo = (incomingTodo: string) => {
         setMyTodos((preTodo: Todo[]) => {
           return [...preTodo, new Todo(incomingTodo)];
