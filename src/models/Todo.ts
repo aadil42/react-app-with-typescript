@@ -4,7 +4,7 @@ class Todo{
 
     constructor(incomingText: string) {
         this.text = incomingText;
-        this.id = Math.floor(Math.random() * 1000000).toString();
+        this.id = 'f' + Math.floor(Math.random() * 1000000).toString(); // adding f in front because we'll use it as id on li tag
     }
 }
 

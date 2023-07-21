@@ -16,10 +16,19 @@ function App() {
         return [...preTodo, new Todo(incomingTodo)];
       }); 
   }
+
+  const removeTodo = (incomingTodoId: string) => {
+    setMyTodos((preTodo: Todo[]) => {
+      return preTodo.filter((todo) => {        
+        return todo.id !== incomingTodoId;
+      });
+    })
+  }
+
   return (
     <div className="App">
       <NewTodo addTodo={addTodo} />
-      <Todos items={myTodos}/>
+      <Todos removeTodo={removeTodo} items={myTodos}/>
     </div>
   );
 }
