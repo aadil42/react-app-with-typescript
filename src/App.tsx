@@ -1,20 +1,24 @@
+import {useState} from 'react';
 import Todos from './components/Todos';
 import Todo from './models/Todo';
 import NewTodo from './components/NewTodo';
 
 function App() {
 
-  const myTodos = [
-    new Todo('item1'),
-    new Todo('item2')
-  ];
+  const [myTodos, setMyTodos] = useState<Todo[]>([]);
+  // const myTodos = [
+    // new Todo('item1'),
+    // new Todo('item2')
+  // ]; 
   const addTodo = (incomingTodo: string) => {
-    // add todo here.
+      setMyTodos((preTodo: Todo[]) => {
+        return [...preTodo, new Todo(incomingTodo)];
+      }); 
   }
   return (
     <div className="App">
-      <Todos items={myTodos}/>
       <NewTodo addTodo={addTodo} />
+      <Todos items={myTodos}/>
     </div>
   );
 }
